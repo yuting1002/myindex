@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里山有機時光 | Alishan Organic Time</title>
+    
+    <!-- 引入字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS 樣式區 --- */
+        :root {
+            --bg-color: #F9F8F4;      /* 米白色 */
+            --primary-color: #4A5D4E; /* 深苔蘚綠 */
+            --accent-color: #8D6E63;  /* 木質棕 */
+            --text-color: #333;
+            --white: #ffffff;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, .logo { font-family: 'Noto Serif TC', serif; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 導覽列 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(249, 248, 244, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* 英雄區 */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; letter-spacing: 2px; }
+
+        .btn {
+            padding: 12px 35px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover { background: var(--accent-color); }
+
+        /* 商品區 */
+        .section-title { text-align: center; margin: 60px 0 40px; font-size: 2rem; color: var(--primary-color); }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 4px;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        .price { color: var(--accent-color); font-weight: 700; margin-bottom: 15px; }
+
+        .add-btn {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-btn:hover { background: var(--primary-color); color: white; }
+
+        /* 側邊購物車 */
+        .cart-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 350px;
+            height: 100%;
+            background: var(--white);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .cart-sidebar.active { right: 0; }
+
+        .cart-header { padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+
+        .cart-items-wrapper { flex: 1; overflow-y: auto; padding: 20px; }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .cart-footer { padding: 20px; border-top: 1px solid #eee; background: #fdfdfd; }
+
+        .total-price { font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; text-align: right; color: var(--primary-color); }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover { opacity: 0.9; }
+
+        /* 頁腳 */
+        footer { background: var(--primary-color); color: var(--bg-color); padding: 40px 0; text-align: center; margin-top: 50px; }
+
+        /* 手機版適配 */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .cart-sidebar { width: 100%; right: -100%; }
+            .nav-links { display: none; } /* 簡化手機版導航 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">阿里山有機時光</a>
+            <ul class="nav-links">
+                <li><a href="#products">精選商品</a></li>
+                <li><a href="#">山林故事</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區 -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>探尋雲霧間的純淨</h1>
+            <p>阿里山海拔 1200 公尺的有機贈禮</p>
+            <button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">開始探索</button>
+        </div>
+    </header>
+
+    <!-- 商品展示區 -->
+    <main class="container" id="products">
+        <h2 class="section-title">精選時光手作</h2>
+        <div class="product-grid" id="product-grid">
+            <!-- 由 JavaScript 動態生成 -->
+        </div>
+    </main>
+
+    <!-- 側邊購物車 -->
+    <aside id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>購物清單</h3>
+            <button onclick="toggleCart()" style="background:none; border:none; font-size: 2rem; cursor:pointer;">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items-wrapper">
+            <!-- 購物車項目 -->
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">總計：<span id="cart-total">NT$ 0</span></div>
+            <button class="checkout-btn" onclick="alert('感謝您的訂購！這只是演示網站。')">確認結帳</button>
+        </div>
+    </aside>
+
+    <footer>
+        <div class="container">
+            <p>阿里山有機時光 Alishan Organic Time</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">&copy; 2026 Crafted with Vibe Coding</p>
+        </div>
+    </footer>
+
+    <script>
+        /* --- JavaScript 邏輯區 --- */
+
+        // 1. 商品數據
+        const products = [
+            { id: 1, name: "特選錫蘭紅茶", price: 580, img: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80&w=400" },
+            { id: 2, name: "手工野花蜜", price: 450, img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=400" },
+            { id: 3, name: "侘寂風陶藝杯", price: 1200, img: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=400" },
+            { id: 4, name: "檜木火車吊飾", price: 350, img: "https://images.unsplash.com/photo-1536640712-4d4c5d509c11?auto=format&fit=crop&q=80&w=400" },
+            { id: 5, name: "清香金萱茶", price: 880, img: "https://images.unsplash.com/photo-1563911191470-4965875704a4?auto=format&fit=crop&q=80&w=400" },
+            { id: 6, name: "森林系香氛蠟燭", price: 680, img: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=400" },
+            { id: 7, name: "手織棉麻桌布", price: 720, img: "https://images.unsplash.com/photo-1590736961649-7100b3a8874b?auto=format&fit=crop&q=80&w=400" },
+            { id: 8, name: "頂級苦茶油", price: 950, img: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=400" }
+        ];
+
+        let cart = [];
+
+        // 2. 初始化：生成商品卡片
+        function initProducts() {
+            const grid = document.getElementById('product-grid');
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${p.img}" alt="${p.name}" class="product-image">
+                    <h3>${p.name}</h3>
+                    <p class="price">NT$ ${p.price}</p>
+                    <button class="add-btn" onclick="addToCart(${p.id})">加入購物車</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // 3. 購物車切換
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('active');
+        }
+
+        // 4. 加入購物車邏輯
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const itemInCart = cart.find(item => item.id === id);
+
+            if (itemInCart) {
+                itemInCart.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateUI();
+            
+            // 加入後自動打開購物車提示
+            const sidebar = document.getElementById('cart-sidebar');
+            if(!sidebar.classList.contains('active')) toggleCart();
+        }
+
+        // 5. 移除項目
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateUI();
+        }
+
+        // 6. 更新介面
+        function updateUI() {
+            const wrapper = document.getElementById('cart-items');
+            const countLabel = document.getElementById('cart-count');
+            const totalLabel = document.getElementById('cart-total');
+            
+            wrapper.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                count += item.quantity;
+
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div>
+                        <p style="font-weight:500">${item.name}</p>
+                        <small>NT$ ${item.price} x ${item.quantity}</small>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" style="color:var(--accent-color); border:none; background:none; cursor:pointer; font-size:0.8rem;">移除</button>
+                `;
+                wrapper.appendChild(div);
+            });
+
+            if (cart.length === 0) {
+                wrapper.innerHTML = '<p style="text-align:center; color:#999; margin-top:20px;">您的購物車是空的</p>';
+            }
+
+            countLabel.innerText = count;
+            totalLabel.innerText = `NT$ ${total.toLocaleString()}`;
+        }
+
+        // 7. 滾動效果
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // 啟動
+        initProducts();
+    </script>
+</body>
+</html>
