@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <script async src="https://www.googletag.com/gtag.js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ==========================================================================
-       【PBL 教案要求：SEO 搜尋策略與關鍵字佈局】
-       埋入品牌詞、問題詞、需求詞與長尾關鍵字（如：苗栗公館無添加紅棗乾推薦）
-       ========================================================================== -->
-    <title>苗栗公館農村小舖 - 苗栗公館無添加紅棗乾推薦｜客家文創禮盒首選</title>
-    <meta name="description" content="源自苗栗公館好山好水，提供在地小農直送的優質有機紅棗乾、檳榔心芋頭酥、傳統客家福菜與經典客庄伴手禮。解決您過年送禮、尋找地方特色伴手禮的困擾。">
-    <meta name="keywords" content="苗栗公館農村小舖, 苗栗伴手禮推薦, 客家文創禮盒, 在地小農紅棗乾, 公館芋頭酥, 客家福菜">
-
-    <!-- ==========================================================================
-       【PBL 教案要求：GA4 數據追蹤碼埋設】
-       在 head 區域置入 Google Analytics 4 追蹤碼，驗證顧客旅程與行為足跡
-       ========================================================================== -->
-    <!-- Google tag (gtag.js) - PBL 模擬追蹤碼 (實務部署時需替換為真實填入之 G-XXXXXX) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBL04MIAOLI"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PBL04MIAOLI');
-    </script>
-
-    <!-- Font Awesome 圖示與 Google 字體 -->
+    <title>苗栗公館農村小舖｜嚴選在地小農紅棗乾、檳榔心芋頭與客家福菜</title>
+    <meta name="description" content="苗栗公館農村小舖專注於地方創生與電商轉型。我們嚴選全台唯一產區的苗栗公館鄉在地紅棗乾、香綿檳榔心芋頭、古法熟成客家福菜與手作芋頭細麵。透過現代極簡視覺，將客庄樸實厚重的風土滋味，轉化為餐桌上的精品禮盒。">
+    <meta name="keywords" content="苗栗公館鄉在地紅棗乾, 檳榔心芋頭酥, 客家福菜細麵, 苗栗小農伴手禮, 地方創生電商">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,480 +27,539 @@
 
     <style>
         /* ==========================================================================
-           CSS VARIABLES & BASE STYLES
+           現代極簡美學：大膽留白、無日系感、台灣公館紅棗深緋紅
            ========================================================================== */
         :root {
-            --bg-color: #F9F8F4;          /* 米白色 */
-            --primary-color: #4A5D4E;     /* 深苔蘚綠 */
-            --secondary-color: #8D6E63;   /* 木質棕 */
-            --accent-color: #5D7388;      /* 客家藍 */
-            --button-color: #A64B3C;      /* 紅棗紅 */
-            --text-color: #2C3E50;
-            --text-light: #7F8C8D;
-            --white: #FFFFFF;
-            --shadow: 0 4px 15px rgba(0,0,0,0.05);
-            --transition: all 0.3s ease;
+            --bg-main: #FFFFFF;
+            --bg-sub: #F8F9FA;
+            --text-dark: #111111;
+            --text-muted: #666666;
+            --accent-gongguan: #8B1E0F; /* 公館在地紅棗深緋紅 */
+            --border-color: #E5E5E5;
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* 高級緩動 */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.8;
+            letter-spacing: 0.05em;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, .brand-logo { font-family: 'Noto Serif TC', serif; font-weight: 600; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; height: auto; display: block; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 24px;
-            background-color: var(--button-color);
-            color: var(--white);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-            text-align: center;
-        }
-        .btn:hover { background-color: #8E3A2F; transform: translateY(-2px); }
-        .btn-secondary { background-color: transparent; border: 2px solid var(--white); color: var(--white); }
-        .btn-secondary:hover { background-color: var(--white); color: var(--text-color); }
-        .badge { background-color: var(--accent-color); color: var(--white); padding: 3px 8px; font-size: 0.75rem; border-radius: 3px; }
+        h1, h2, h3, h4 { font-family: 'Noto Serif TC', serif; font-weight: 900; letter-spacing: 0.1em; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
 
         /* ==========================================================================
-           1. NAVBAR (導覽列優化：解決 RWD 手機版重疊問題)
+           1. 響應式導覽列（帶有動態陰影與淡入動畫）
            ========================================================================== */
         .navbar {
-            position: fixed;
-            top: 0; left: 0; width: 100%; z-index: 1000;
-            transition: var(--transition); padding: 20px 0; color: var(--white);
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 25px 0; transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            animation: fadeInDown 0.8s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .navbar.scrolled {
-            background-color: rgba(249, 248, 244, 0.98);
-            backdrop-filter: blur(10px); padding: 12px 0;
-            box-shadow: var(--shadow); color: var(--text-color);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            background: #FFFFFF;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .brand-logo { font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; cursor: pointer; }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { position: relative; font-weight: 500; font-size: 1rem; cursor: pointer; }
-        .nav-links a:hover { color: var(--button-color); }
-        .nav-icons { display: flex; gap: 20px; align-items: center; }
-        .nav-icon-btn { background: none; border: none; color: inherit; font-size: 1.3rem; cursor: pointer; position: relative; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
+        
+        .brand-logo { font-size: 1.25rem; font-weight: 700; cursor: pointer; color: var(--text-dark); white-space: nowrap; transition: var(--transition-smooth); }
+        .brand-logo:hover { transform: scale(1.03); }
+        .brand-logo span { color: var(--accent-gongguan); }
+        
+        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; cursor: pointer; position: relative; color: var(--text-dark); text-decoration: none; transition: var(--transition-smooth); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background-color: var(--accent-gongguan); transition: var(--transition-smooth);
+        }
+        .nav-links a:hover { color: var(--accent-gongguan); }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .nav-icons { display: flex; align-items: center; gap: 20px; }
+        .nav-icons .cart-btn {
+            background: none; border: none; font-size: 1.2rem; cursor: pointer; position: relative; color: var(--text-dark); display: flex; align-items: center; gap: 5px; transition: var(--transition-smooth);
+        }
+        .nav-icons .cart-btn:hover { transform: scale(1.08); color: var(--accent-gongguan); }
+        .cart-lbl { font-size: 0.9rem; font-weight: 500; }
         .cart-count {
-            position: absolute; top: -8px; right: -10px; background-color: var(--button-color);
-            color: var(--white); font-size: 0.7rem; width: 18px; height: 18px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; font-weight: bold;
+            background: var(--accent-gongguan); color: white; font-size: 0.7rem; width: 18px; height: 18px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-weight: bold; transition: var(--transition-smooth);
+        }
+
+        /* 手機版導覽列 RWD 優化 */
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-dark); transition: var(--transition-smooth); }
+        .menu-toggle:hover { transform: scale(1.1); }
+
+        @media (max-width: 850px) {
+            .menu-toggle { display: block; order: 3; }
+            .nav-icons { order: 2; margin-left: auto; margin-right: 15px; }
+            .brand-logo { order: 1; font-size: 1.15rem; }
+            .nav-links {
+                position: absolute; top: 60px; left: -40px; width: calc(100% + 80px); background: #FFFFFF;
+                flex-direction: column; gap: 0; padding: 0; max-height: 0; overflow: hidden;
+                transition: var(--transition-smooth); border-bottom: 0 solid var(--border-color);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+            .nav-links.active { max-height: 250px; border-bottom: 1px solid var(--border-color); }
+            .nav-links a { width: 100%; text-align: center; padding: 15px 0; border-top: 1px solid var(--border-color); }
+            .nav-links a::after { display: none; }
         }
 
         /* ==========================================================================
-           3. HERO SECTION (首頁主視覺與視差滾動)
+           2. 主視覺區（過渡縮放背景與文字向上滑入動畫）
            ========================================================================== */
-        .hero {
-            height: 100vh;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&q=80&w=1920');
-            background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
-            display: flex; align-items: center; color: var(--white); text-align: center; padding-top: 80px;
+        .hero { height: 100vh; display: flex; align-items: center; position: relative; background: #000; overflow: hidden; }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            transform: scale(1.15); animation: heroZoom 8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .hero-content { max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; letter-spacing: 2px; }
-        .hero h3 { font-size: 1.6rem; margin-bottom: 20px; font-weight: 400; color: #E2E8F0; }
-        .hero p { font-size: 1.05rem; margin-bottom: 35px; opacity: 0.9; }
-        .hero-btns { display: flex; justify-content: center; gap: 20px; }
+        @keyframes heroZoom { to { transform: scale(1); } }
+        .hero-content { position: relative; z-index: 10; color: #FFF; max-width: 800px; }
+        
+        /* 針對核心金句量身設計的細緻進場動畫 */
+        .hero h1 { font-size: 3.6rem; line-height: 1.4; margin-bottom: 30px; }
+        .hero p { font-size: 1.05rem; font-weight: 300; opacity: 0.9; margin-bottom: 40px; max-width: 550px; }
+        
+        .btn-modern {
+            display: inline-block; padding: 15px 40px; border: 1px solid #FFF; color: #FFF; font-size: 0.9rem;
+            background: transparent; text-decoration: none; cursor: pointer; transition: var(--transition-smooth); position: relative; overflow: hidden;
+        }
+        .btn-modern::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: #FFF; transition: var(--transition-smooth); z-index: -1; }
+        .btn-modern:hover { color: var(--text-dark); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+        .btn-modern:hover::before { left: 0; }
 
         /* ==========================================================================
-           2. STORY SIDEBAR & MAIN LAYOUT
+           3. 非對稱故事區（圖片微放大與排版錯位流暢感）
            ========================================================================== */
-        .main-layout { padding: 80px 0; display: grid; grid-template-columns: 320px 1fr; gap: 40px; }
-        .story-sidebar {
-            background-color: var(--white); padding: 30px; border-radius: 8px; box-shadow: var(--shadow);
-            height: fit-content; position: sticky; top: 100px; border-left: 4px solid var(--primary-color);
-        }
-        .story-sidebar h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.3rem; }
-        .story-sidebar p { font-size: 0.95rem; color: #555; text-align: justify; margin-bottom: 15px; }
-
-        /* 搜尋與篩選 */
-        .shop-controls { margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; }
-        .search-box { position: relative; width: 100%; }
-        .search-box input {
-            width: 100%; padding: 15px 20px 15px 50px; border: 1px solid #DDD; border-radius: 30px;
-            font-size: 1rem; outline: none; box-shadow: var(--shadow);
-        }
-        .search-box i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-light); }
-        .filter-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .filter-btn {
-            background-color: var(--white); border: 1px solid #E0DED7; padding: 8px 20px;
-            border-radius: 20px; cursor: pointer; font-weight: 500; transition: var(--transition);
-        }
-        .filter-btn:hover, .filter-btn.active { background-color: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
+        .story-section { padding: 140px 0; background: var(--bg-main); }
+        .story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+        .story-img-wrapper { position: relative; overflow: hidden; border: 1px solid var(--border-color); }
+        .story-img-wrapper img { width: 100%; height: 550px; object-fit: cover; transition: var(--transition-smooth); }
+        .story-img-wrapper:hover img { transform: scale(1.05); }
+        .story-text-box { padding: 20px 0; }
+        .section-num { font-size: 4.5rem; font-weight: 700; color: #E5E5E5; display: block; margin-bottom: -15px; transition: var(--transition-smooth); }
+        .story-text-box:hover .section-num { color: var(--accent-gongguan); transform: translateX(10px); }
+        .story-text-box h2 { font-size: 2.4rem; color: var(--text-dark); margin-bottom: 25px; line-height: 1.5; }
+        .story-text-box p { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; text-align: justify; }
 
         /* ==========================================================================
-           6. PRODUCTS GRID (商品展示區)
+           4. 商城功能區（分類切換與商品卡片升級漂浮動畫）
            ========================================================================== */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; }
-        .product-card {
-            background-color: var(--white); border-radius: 8px; overflow: hidden;
-            box-shadow: var(--shadow); transition: var(--transition); display: flex; flex-direction: column;
-        }
-        .product-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .product-img-wrapper { position: relative; height: 200px; overflow: hidden; cursor: pointer; }
-        .product-card img { width: 100%; height: 100%; object-fit: cover; }
-        .product-origin { position: absolute; top: 12px; left: 12px; background-color: var(--accent-color); color: var(--white); padding: 4px 8px; font-size: 0.75rem; border-radius: 3px; }
-        .product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-title { font-size: 1.1rem; margin-bottom: 8px; color: var(--text-color); }
-        .product-desc { font-size: 0.85rem; color: var(--text-light); margin-bottom: 15px; height: 40px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-        .product-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-        .product-price { font-weight: 700; color: var(--button-color); font-size: 1.15rem; }
-        .add-to-cart-btn {
-            background-color: var(--primary-color); color: var(--white); border: none;
-            width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;
-        }
-        .add-to-cart-btn:hover { background-color: var(--button-color); }
+        .shop-section { padding: 120px 0; background: var(--bg-sub); }
+        .shop-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
+        .shop-header h2 { font-size: 2rem; }
+        
+        .filter-cluster { display: flex; gap: 25px; flex-wrap: wrap; }
+        .filter-tag { background: none; border: none; font-size: 0.95rem; font-family: inherit; color: var(--text-muted); cursor: pointer; padding: 5px 0; position: relative; transition: var(--transition-smooth); }
+        .filter-tag.active, .filter-tag:hover { color: var(--text-dark); font-weight: 700; }
+        .filter-tag::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--accent-gongguan); transition: var(--transition-smooth); }
+        .filter-tag.active::after { width: 100%; }
 
-        /* 關於與聯絡區塊 */
-        .about-contact-section { padding: 80px 0; background-color: #F1EFE9; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--primary-color); }
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .about-box, .contact-box { background-color: var(--white); padding: 40px; border-radius: 8px; box-shadow: var(--shadow); }
-        .contact-list li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px; }
-        .contact-list i { color: var(--secondary-color); font-size: 1.2rem; margin-top: 4px; }
-        .team-members { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .search-container { margin-bottom: 40px; width: 100%; max-width: 400px; }
+        .search-container input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border-color); padding: 10px 0; font-size: 0.95rem; outline: none; transition: var(--transition-smooth); }
+        .search-container input:focus { border-bottom-color: var(--text-dark); padding-left: 5px; }
 
-        /* 側邊購物車 Drawer */
+        /* 商品展示網格 - 卡片懸浮有優雅陰影與微微升起效果 */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px; }
+        .product-card { background: transparent; transition: var(--transition-smooth); position: relative; }
+        
+        /* 每次渲染卡片時的流暢淡入動畫效果 */
+        .product-card.fade-in-item { animation: cardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-img-holder { width: 100%; height: 380px; overflow: hidden; background: #FFF; position: relative; margin-bottom: 20px; border: 1px solid var(--border-color); }
+        .product-card img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); }
+        
+        /* 快速加入購物車按鈕平滑抽屜動畫 */
+        .quick-add { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(17,17,17,0.95); color: #FFF; text-align: center; padding: 15px; font-size: 0.9rem; font-weight: 500; transform: translateY(100%); transition: var(--transition-smooth); cursor: pointer; }
+        .product-img-holder:hover .quick-add { transform: translateY(0); }
+        .product-img-holder:hover img { transform: scale(1.06); }
+        .product-card:hover { transform: translateY(-6px); }
+
+        .product-meta { display: flex; justify-content: space-between; align-items: flex-start; }
+        .product-title { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); cursor: pointer; transition: var(--transition-smooth); }
+        .product-title:hover { color: var(--accent-gongguan); }
+        .product-cat { font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 4px; }
+        .product-price { font-size: 1.05rem; font-weight: 700; color: var(--accent-gongguan); }
+
+        /* ==========================================================================
+           5. 關於我們與團隊（滑動邊框伸展動畫）
+           ========================================================================== */
+        .info-section { padding: 120px 0; background: var(--bg-main); border-top: 1px solid var(--border-color); }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        .info-box h3 { font-size: 1.8rem; margin-bottom: 25px; }
+        .info-box p { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; text-align: justify; }
+        
+        .team-cluster { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        .member-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; transition: var(--transition-smooth); }
+        .member-row:hover { border-bottom-color: var(--text-dark); padding-left: 8px; background: rgba(0,0,0,0.01); }
+        .member-role { color: var(--text-muted); }
+        .member-name { font-weight: bold; color: var(--text-dark); }
+
+        /* ==========================================================================
+           6. 數據蒐集與隱私權保護（強調質感與安全感）
+           ========================================================================== */
+        .ethics-privacy-section { padding: 80px 0; background: #FFFFFF; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-muted); }
+        .privacy-box { max-width: 1000px; margin: 0 auto; background: var(--bg-sub); padding: 40px; border: 1px solid var(--border-color); transition: var(--transition-smooth); }
+        .privacy-box:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.04); transform: translateY(-2px); }
+        .privacy-box h4 { font-family: 'Noto Serif TC', serif; color: var(--text-dark); font-size: 1.2rem; margin-bottom: 20px; text-align: center; }
+        .privacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px; }
+        .privacy-col h5 { color: var(--text-dark); font-size: 0.95rem; margin-bottom: 10px; font-weight: 700; }
+        .privacy-col p { text-align: justify; line-height: 1.6; font-size: 0.85rem; }
+
+        /* ==========================================================================
+           7. 購物車側滑欄及彈窗基礎樣式
+           ========================================================================== */
         .cart-drawer {
-            position: fixed; top: 0; right: -400px; width: 400px; height: 100vh;
-            background-color: var(--white); box-shadow: -5px 0 25px rgba(0,0,0,0.1); z-index: 1100;
-            transition: var(--transition); display: flex; flex-direction: column;
+            position: fixed; top: 0; right: -450px; width: 450px; height: 100vh;
+            background: var(--bg-main); box-shadow: -10px 0 40px rgba(0,0,0,0.08); z-index: 1100;
+            transition: var(--transition-smooth); display: flex; flex-direction: column; border-left: 1px solid var(--border-color);
         }
         .cart-drawer.open { right: 0; }
-        .cart-header { padding: 20px; background-color: var(--primary-color); color: var(--white); display: flex; justify-content: space-between; align-items: center; }
-        .close-cart { background: none; border: none; color: var(--white); font-size: 1.4rem; cursor: pointer; }
-        .cart-items-container { flex-grow: 1; padding: 20px; overflow-y: auto; }
-        .cart-item { display: flex; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #EEE; align-items: center; }
-        .cart-item-img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
-        .cart-item-details { flex-grow: 1; }
-        .cart-item-qty { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
-        .qty-btn { background-color: #EEE; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; }
-        .remove-item { background: none; border: none; color: #C0392B; cursor: pointer; }
-        .cart-footer { padding: 20px; background-color: #F9F9F9; border-top: 1px solid #EEE; }
-        .coupon-section { display: flex; gap: 10px; margin-bottom: 15px; }
-        .coupon-section input { flex-grow: 1; padding: 8px 12px; border: 1px solid #DDD; border-radius: 4px; }
-        .summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .summary-row.total { font-size: 1.2rem; font-weight: 700; color: var(--button-color); border-top: 1px solid #DDD; padding-top: 8px; }
-        .checkout-btn { width: 100%; padding: 12px; font-size: 1rem; margin-top: 10px; }
+        .cart-header { padding: 35px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .close-cart { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-dark); transition: var(--transition-smooth); }
+        .close-cart:hover { transform: rotate(90deg) scale(1.1); color: var(--accent-gongguan); }
+        
+        .cart-body { flex-grow: 1; padding: 35px; overflow-y: auto; }
+        .cart-item { display: flex; gap: 20px; margin-bottom: 25px; align-items: center; animation: cardFadeIn 0.4s ease; }
+        .cart-item-img { width: 70px; height: 70px; object-fit: cover; border: 1px solid var(--border-color); }
+        .cart-item-info { flex-grow: 1; }
+        .cart-item-name { font-size: 0.95rem; font-weight: 700; }
+        .cart-item-price { font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; }
+        .cart-item-ctrl { display: flex; align-items: center; gap: 15px; margin-top: 8px; }
+        .qty-adjust { background: none; border: 1px solid var(--border-color); width: 26px; height: 26px; cursor: pointer; font-size: 0.9rem; transition: var(--transition-smooth); }
+        .qty-adjust:hover { background: var(--text-dark); color: #FFF; }
+        .remove-btn { background: none; border: none; color: #BA3C2A; font-size: 0.85rem; cursor: pointer; margin-left: auto; }
+        .remove-btn:hover { text-decoration: underline; }
 
-        /* 彈窗元件 */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1200; display: none; justify-content: center; align-items: center; padding: 20px; }
-        .modal-overlay.open { display: flex; }
-        .modal-content { background-color: var(--white); width: 100%; max-width: 650px; border-radius: 8px; overflow: hidden; position: relative; }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; background: none; border: none; cursor: pointer; }
-        .modal-body { padding: 30px; }
-        .p-modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .p-modal-img { height: 250px; object-fit: cover; width: 100%; border-radius: 4px; }
-        .receipt-header { text-align: center; color: var(--primary-color); margin-bottom: 20px; }
-        .receipt-header i { font-size: 3rem; color: #2ECC71; margin-bottom: 10px; }
-        .receipt-details { background-color: #F9F9F9; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-size: 0.9rem; }
+        .cart-footer { padding: 35px; background: var(--bg-sub); border-top: 1px solid var(--border-color); }
+        .coupon-wrapper { display: flex; gap: 10px; margin-bottom: 20px; }
+        .coupon-wrapper input { flex-grow: 1; padding: 12px; border: 1px solid var(--border-color); background: #FFF; outline: none; font-size: 0.9rem; }
+        .btn-coupon { padding: 10px 20px; background: transparent; border: 1px solid var(--text-dark); color: var(--text-dark); font-size: 0.9rem; cursor: pointer; transition: var(--transition-smooth); }
+        .btn-coupon:hover { background: var(--text-dark); color: #FFF; }
 
-        /* AI 助手 */
-        .ai-widget { position: fixed; bottom: 30px; right: 30px; z-index: 999; }
-        .ai-toggle { width: 60px; height: 60px; background-color: var(--accent-color); color: var(--white); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .ai-chat-box { position: absolute; bottom: 75px; right: 0; width: 320px; height: 400px; background-color: var(--white); border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); display: none; flex-direction: column; overflow: hidden; border: 1px solid #E0DED7; }
-        .ai-chat-box.open { display: flex; }
-        .ai-chat-header { background-color: var(--accent-color); color: var(--white); padding: 15px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
-        .ai-chat-body { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
-        .msg { max-width: 80%; padding: 8px 12px; border-radius: 6px; }
-        .msg.bot { background-color: #ECEFF1; align-self: flex-start; }
-        .msg.user { background-color: var(--accent-color); color: var(--white); align-self: flex-end; }
-        .ai-chat-footer { padding: 10px; border-top: 1px solid #EEE; display: flex; gap: 8px; }
-        .ai-chat-footer input { flex-grow: 1; padding: 6px 12px; border: 1px solid #DDD; border-radius: 4px; outline: none; }
-        .ai-chat-footer button { background-color: var(--accent-color); color: var(--white); border: none; padding: 0 12px; border-radius: 4px; cursor: pointer; }
+        .cart-summary { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .cart-summary.total { font-size: 1.2rem; font-weight: 700; color: var(--accent-gongguan); margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); }
+        .btn-checkout { width: 100%; padding: 16px; background: var(--text-dark); color: #FFF; border: none; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: var(--transition-smooth); }
+        .btn-checkout:hover { background: var(--accent-gongguan); transform: translateY(-2px); }
 
-        /* 頁尾 */
-        footer { background-color: #2C3E50; color: #BDC3C7; padding: 30px 0; text-align: center; font-size: 0.85rem; border-top: 4px solid var(--secondary-color); }
-        .footer-links { margin-top: 10px; display: flex; justify-content: center; gap: 20px; }
-        .footer-links a:hover { color: var(--white); }
-        .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1050; display: none; }
-        .drawer-overlay.open { display: block; }
+        /* 遮罩及彈窗 */
+        .modal-mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); z-index: 1200; display: none; justify-content: center; align-items: center; padding: 20px; }
+        .modal-mask.open { display: flex; }
+        .modal-window { background: var(--bg-main); width: 100%; max-width: 700px; position: relative; border: 1px solid var(--border-color); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+        .modal-mask.open .modal-window { animation: modalFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes modalFade { from { opacity:0; transform: translateY(40px); } to { opacity:1; transform: translateY(0); } }
+        .close-modal { position: absolute; top: 25px; right: 25px; font-size: 1.3rem; background: none; border: none; cursor: pointer; color: var(--text-dark); transition: var(--transition-smooth); }
+        .close-modal:hover { transform: rotate(90deg); color: var(--accent-gongguan); }
+        .modal-inner { padding: 50px; }
+        
+        /* 線上客服管家 */
+        .ai-anchor { position: fixed; bottom: 40px; right: 40px; z-index: 999; }
+        .ai-launcher { padding: 0 20px; height: 55px; background: var(--text-dark); color: #FFF; border-radius: 30px; display: flex; justify-content: center; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: var(--transition-smooth); font-size: 0.9rem; font-weight: 500; }
+        .ai-launcher:hover { background: var(--accent-gongguan); transform: translateY(-4px) scale(1.02); }
+        .ai-panel { position: absolute; bottom: 70px; right: 0; width: 340px; height: 430px; background: #FFF; border: 1px solid var(--border-color); box-shadow: 0 15px 40px rgba(0,0,0,0.1); display: none; flex-direction: column; transition: var(--transition-smooth); }
+        .ai-panel.open { display: flex; animation: modalFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .ai-header { padding: 20px; background: var(--bg-sub); font-size: 0.9rem; font-weight: 700; border-bottom: 1px solid var(--border-color); }
+        .ai-dialogue { flex-grow: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; }
+        .bubble { max-width: 85%; padding: 10px 14px; line-height: 1.5; }
+        .bubble.bot { background: var(--bg-sub); align-self: flex-start; color: var(--text-dark); border-radius: 0 12px 12px 12px; }
+        .bubble.user { background: var(--text-dark); color: #FFF; align-self: flex-end; border-radius: 12px 0 12px 12px; }
+        .ai-footer { padding: 15px; border-top: 1px solid var(--border-color); display: flex; gap: 10px; }
+        .ai-footer input { flex-grow: 1; border: none; background: var(--bg-sub); padding: 10px; font-size: 0.9rem; outline: none; }
+        .ai-footer button { background: var(--text-dark); color: #FFF; border: none; padding: 0 15px; cursor: pointer; font-size: 0.9rem; transition: var(--transition-smooth); }
+        .ai-footer button:hover { background: var(--accent-gongguan); }
 
-        /* ==========================================================================
-           【PBL 核心修復：響應式設計 RWD 斷點優化】
-           解決手機版畫面的 Navbar 內容與 Logo 發生文字擠壓重疊之問題
-           ========================================================================== */
+        .overlay-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25); backdrop-filter: blur(4px); z-index: 1050; display: none; transition: var(--transition-smooth); }
+        .overlay-screen.open { display: block; }
+
+        footer { background: var(--bg-sub); color: var(--text-dark); padding: 50px 0; text-align: center; font-size: 0.85rem; border-top: 1px solid var(--border-color); }
+
         @media (max-width: 992px) {
-            .main-layout { grid-template-columns: 1fr; }
-            .story-sidebar { position: relative; top: 0; }
-            .info-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.3rem; }
-            .hero h3 { font-size: 1.2rem; }
-            /* 在窄螢幕(手機版)下，直接隱藏文字導覽列，防止重疊 */
-            .nav-links { display: none; }
+            .story-grid, .info-grid, .privacy-grid { grid-template-columns: 1fr; gap: 40px; }
+            .story-img-wrapper img { height: 400px; }
             .cart-drawer { width: 100%; right: -100%; }
-            .brand-logo { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="overlay-screen" id="overlayScreen"></div>
 
-    <!-- 1. 導覽列 (Navbar) -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="brand-logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-                <i class="fa-solid fa-leaf"></i> 苗栗公館農村小舖
+                苗栗公館 <span>.</span> 農村小舖
             </div>
-            <!-- 手機版下此區塊會自動 display:none 隱藏避免重疊 -->
-            <div class="nav-links">
-                <a onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">特色商城</a>
-                <a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">關於我們</a>
-                <a onclick="toggleAI()">AI 助手</a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="切換選單">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a onclick="scrollToSection('shop')">特色商城</a>
+                <a onclick="scrollToSection('about')">關於我們</a>
+                <a onclick="scrollToSection('privacy')">數據安全宣告</a>
+                <a onclick="toggleAI()">線上管家</a>
             </div>
+            
             <div class="nav-icons">
-                <button class="nav-icon-btn" onclick="toggleCart()" aria-label="購物車">
-                    <i class="fa-solid fa-basket-shopping"></i>
+                <button class="cart-btn" onclick="toggleCart()">
+                    <span class="cart-lbl">購物車</span>
+                    <i class="fa-solid fa-bag-shopping"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- 3. Hero Section (首頁主視覺：修復「認識公館」按鈕綁定) -->
     <header class="hero">
-        <div class="container hero-content">
-            <h1>苗栗公館農村小舖</h1>
-            <h3>「從土地到餐桌，傳遞最真實的農村好味道。」</h3>
-            <p>農村不只是生產食物的地方，更保存著文化、人情與土地記憶。透過公館農村小舖，讓更多人品嚐來自苗栗公館的在地風味。</p>
-            <div class="hero-btns">
-                <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">立即選購</button>
-                <!-- PBL 修復：原按鈕無綁定動作，現正確導向至關於我們與小組故事 -->
-                <button class="btn btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">認識公館</button>
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">苗栗公館在地風土與工藝</span>
+                <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">土地的厚度，<br>凝練於飽滿的作物之中。</h1>
+                <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">破除傳統地方特產的既定印象，我們以純粹的現代極簡美學，將苗栗公館百年小農工藝化為餐桌上的精緻點心與食材。</p>
+                <button class="btn-modern" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="700" onclick="scrollToSection('shop')">瀏覽嚴選商品</button>
             </div>
         </div>
     </header>
 
-    <!-- 主佈局區區塊 -->
-    <main class="container main-layout" id="shop">
-        
-        <!-- 2. 側邊品牌故事欄 (Sidebar) -->
-        <aside class="story-sidebar">
-            <h3><i class="fa-solid fa-book-open"></i> 公館農村故事</h3>
-            <p>在苗栗公館這片純樸的土地上，農民們依循四季耕作，種植出最具地方特色的農產品。公館鄉以紅棗、芋頭、福菜等農產聞名，每一份收成都承載著農人的辛勤與對土地的熱愛。</p>
-            <p>曾有一位種植紅棗的農民，面對市場競爭與銷售困難，一度考慮放棄經營。然而透過農會與社區推廣平台協助，成功讓更多人認識公館紅棗的特色與品質，也讓他的產品走向更廣大的市場。</p>
-            <p>苗栗公館農村小舖希望透過網路平台，串聯生產者與消費者，讓更多人看見在地農業的價值，支持農村永續發展。</p>
-        </aside>
-
-        <!-- 右側：電商核心功能區 -->
-        <section>
-            <!-- 4. 搜尋功能 -->
-            <div class="shop-controls">
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="搜尋紅棗、芋頭、福菜等商品..." oninput="filterProducts()">
-                </div>
-
-                <!-- 5. 商品分類篩選 -->
-                <div class="filter-tags">
-                    <button class="filter-btn active" onclick="setCategory('all', this)">全部商品</button>
-                    <button class="filter-btn" onclick="setCategory('生鮮蔬果', this)">生鮮蔬果</button>
-                    <button class="filter-btn" onclick="setCategory('茶飲乾貨', this)">茶飲乾貨</button>
-                    <button class="filter-btn" onclick="setCategory('客家特色食品', this)">客家特色食品</button>
-                </div>
+    <section class="story-section" id="story">
+        <div class="container story-grid">
+            <div class="story-img-wrapper" data-aos="fade-right" data-aos-duration="1200">
+                <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&q=80&w=1200" alt="苗栗公館鄉在地紅棗乾日曬園區景象">
             </div>
-
-            <!-- 6. 商品展示區 (Products Grid) -->
-            <div class="products-grid" id="productsGrid">
-                <!-- 由 JavaScript 動態渲染呈現，並包含 SEO alt 長尾關鍵字修復 -->
+            <div class="story-text-box" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                <span class="section-num">01</span>
+                <h2>傳承四代，<br>全台唯一的紅棗專業產區。</h2>
+                <p>在苗栗公館這片被後龍溪灌溉的純淨平原上，農人們依循著嚴格的節氣與純手工日曬工藝。這裡不只是作物豐饒的溫床，幕後更是全臺灣唯一擁有紅棗栽培歷史的特殊風土。</p>
+                <p>新一代經營團隊透過導入科學化生產與精緻外盒管理，將原本隱藏在鄉野間的樸實風味，提煉為能與頂級食材媲美的文化代表。</p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- 12 & 13. 關於我們與聯絡資訊 (優化品牌與倫理透明度內容) -->
-    <section class="about-contact-section" id="about">
+    <section class="shop-section" id="shop">
         <div class="container">
-            <h2 class="section-title">關於我們 & 聯絡資訊</h2>
-            <div class="info-grid">
-                <!-- 關於我們 -->
-                <div class="about-box">
-                    <h3>關於苗栗公館農村小舖</h3>
-                    <br>
-                    <p>我們致力於串聯苗栗公館在地小農，將傳統客家庄的經典味道與優質農產帶入現代人的生活。我們堅持三大創生宗旨：</p>
-                    <p style="font-size:0.9rem; padding-left:10px; border-left:2px solid var(--primary-color);">
-                        1. 嚴選產地直送，保證無農藥安全品質。<br>
-                        2. 傳承傳統手工藝，保留福菜與客庄在地風味。<br>
-                        3. 整合數位行銷搜尋策略，破除地方品牌無流量之數位櫥窗困境。
-                    </p>
+            <div class="shop-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2>嚴選商品分類</h2>
+                <div class="filter-cluster">
+                    <button class="filter-tag active" onclick="setCategory('全部', this)">全部商品</button>
+                    <button class="filter-tag" onclick="setCategory('生鮮蔬果', this)">生鮮蔬果</button>
+                    <button class="filter-tag" onclick="setCategory('茶飲乾貨', this)">茶飲乾貨</button>
+                    <button class="filter-tag" onclick="setCategory('客家特色食品', this)">客家特色食品</button>
                 </div>
-                <!-- 聯絡資訊 -->
-                <div class="contact-box">
-                    <h3>聯絡與執行團隊</h3>
-                    <br>
-                    <ul class="contact-list">
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <div><strong>地址：</strong>苗栗縣公館鄉</div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-users"></i>
-                            <div>
-                                <strong>PBL 教案第二組專案團隊：</strong>
-                                <div class="team-members">
-                                    <span class="badge">組長：張景雅</span>
-                                    <span class="badge">紀錄：劉佳玲</span>
-                                    <span class="badge">報告：郎郁婷</span>
-                                    <span class="badge">分析：范恩慈</span>
-                                    <span class="badge">分析：陳姿吟</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-                            <div><strong>團隊信箱：</strong><a href="mailto:service@gongguan-ruralshop.tw">service@gongguan-ruralshop.tw</a></div>
-                        </li>
-                    </ul>
+            </div>
+
+            <div class="search-container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <input type="text" id="searchInput" placeholder="輸入關鍵字搜尋（例如：紅棗、芋頭、福菜...）" oninput="filterProducts()">
+            </div>
+
+            <div class="products-grid" id="productsGrid" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                </div>
+        </div>
+    </section>
+
+    <section class="info-section" id="about">
+        <div class="container info-grid">
+            <div class="info-box" data-aos="fade-up" data-aos-duration="1200">
+                <h3>關於小舖</h3>
+                <p>苗栗公館農村小舖是一項地方創生與網路商務的融合實驗。我們拒絕繁複累贅的包裝，改以純粹、乾淨、永續的現代視覺，呈現在地小農的辛勞與價值。</p>
+                <p>每一筆訂單，皆有固定利潤回流至社區老人長照基金與友善耕作推廣基金，讓土地的永續性不只停留在口號。</p>
+            </div>
+            <div class="info-box" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <h3>專案執行團隊</h3>
+                <div class="team-cluster">
+                    <div class="member-row"><span class="member-role">專案總監</span><span class="member-name">張景雅</span></div>
+                    <div class="member-row"><span class="member-role">數據分析</span><span class="member-name">劉佳玲</span></div>
+                    <div class="member-row"><span class="member-role">行銷公關</span><span class="member-name">郎郁婷</span></div>
+                    <div class="member-row"><span class="member-role">策略規劃</span><span class="member-name">范恩慈</span></div>
+                    <div class="member-row"><span class="member-role">系統開發</span><span class="member-name">陳姿吟</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 9. 側邊購物車 Drawer -->
+    <section class="ethics-privacy-section" id="privacy">
+        <div class="container">
+            <div class="privacy-box" data-aos="zoom-in" data-aos-duration="1200">
+                <h4>數據分析倫理與隱私權保護宣告</h4>
+                <p style="font-size:0.9rem; text-align:center; line-height:1.6; margin-bottom:20px;">
+                    本平台落實「電子商務 PBL 教案 04」關於數據追蹤與個人隱私之倫理指導，我們保證商業利益與顧客權益之間的完全透明。
+                </p>
+                <div class="privacy-grid">
+                    <div class="privacy-col" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                        <h5>1. Google Analytics 4 (GA4) 蒐集範疇</h5>
+                        <p>本站內嵌 GA4 追蹤碼，僅用於統計集體使用者之停留時間、瀏覽頁面路徑與產品點擊摩擦率。我們已主動啟用 IP 匿名化技術，在此流程中，系統無法亦不會識別或留存任何特定顧客的姓名、身份證字號或私密金融卡號。</p>
+                    </div>
+                    <div class="privacy-col" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <h5>2. 購物行為追蹤與透明度承諾</h5>
+                        <p>當您點擊「加到購物車」或使用促銷代碼「客家88」時，該行為僅紀錄於您個人的本地瀏覽器快取中（Local Storage），網頁絕不會在未經您明確授權下，將您的購物偏好數據轉售給任何第三方進行廣告精準投放。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
-            <h3><i class="fa-solid fa-basket-shopping"></i> 購物籃清單</h3>
-            <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+            <h3>您的購物車</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i> 關閉</button>
         </div>
-        <div class="cart-items-container" id="cartItems"></div>
+        <div class="cart-body" id="cartItems"></div>
         <div class="cart-footer">
-            <!-- 10. 折價券功能 -->
-            <div class="coupon-section">
-                <input type="text" id="couponInput" placeholder="請輸入折扣碼 (如: HAKKA88)">
-                <button class="btn" style="padding:8px 15px;" onclick="applyCoupon()">套用</button>
+            <div class="coupon-wrapper">
+                <input type="text" id="couponInput" placeholder="請輸入優惠券代碼（例如：客家88）">
+                <button class="btn-coupon" onclick="applyCoupon()">使用代碼</button>
             </div>
-            <div class="summary-row"><span>商品小計:</span><span id="subtotalPrice">$0</span></div>
-            <div class="summary-row" style="color:var(--button-color);"><span>折抵金額:</span><span id="discountPrice">-$0</span></div>
-            <div class="summary-row total"><span>最終總額:</span><span id="totalPrice">$0</span></div>
-            <button class="btn checkout-btn" onclick="openCheckoutModal()">立即結帳</button>
+            <div class="cart-summary"><span>商品小計</span><span id="subtotalPrice">NT$ 0</span></div>
+            <div class="cart-summary" style="color:var(--accent-gongguan);"><span>折扣金額</span><span id="discountPrice">-NT$ 0</span></div>
+            <div class="cart-summary total"><span>結帳總金額</span><span id="totalPrice">NT$ 0</span></div>
+            <button class="btn-checkout" onclick="openCheckoutModal()">前往結帳</button>
         </div>
     </div>
 
-    <!-- 7. 商品詳細資訊 Modal -->
-    <div class="modal-overlay" id="productModal">
-        <div class="modal-content">
+    <div class="modal-mask" id="productModal">
+        <div class="modal-window">
             <button class="close-modal" onclick="closeModal('productModal')"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-body" id="productModalBody"></div>
+            <div class="modal-inner" id="productModalBody"></div>
         </div>
     </div>
 
-    <!-- 11. 結帳收據 Modal -->
-    <div class="modal-overlay" id="checkoutModal">
-        <div class="modal-content" style="max-width: 500px;">
-            <button class="close-modal" onclick="closeModal('checkoutModal')"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-body">
-                <div class="receipt-header">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <h2>模擬結帳成功！</h2>
-                    <p>感謝您支持苗栗公館在地農業！</p>
-                </div>
-                <div class="receipt-details" id="receiptDetails"></div>
-                <button class="btn" style="width:100%;" onclick="clearCartAndClose()">繼續購物</button>
+    <div class="modal-mask" id="checkoutModal">
+        <div class="modal-window" style="max-width: 450px;">
+            <div class="modal-inner" style="text-align: center;">
+                <i class="fa-solid fa-check" style="font-size: 2.2rem; color:var(--accent-gongguan); margin-bottom: 20px;"></i>
+                <h3 style="margin-bottom: 15px;">訂單提交成功</h3>
+                <p style="font-size: 0.9rem; color:var(--text-muted); margin-bottom: 25px;">感謝您支持苗栗公館小農，本網頁為專案模擬結帳，並未進行實質扣款。</p>
+                <div id="receiptDetails" style="text-align: left; background: var(--bg-sub); padding: 20px; font-size: 0.9rem; margin-bottom: 25px;"></div>
+                <button class="btn-checkout" onclick="clearCartAndClose()">繼續購物</button>
             </div>
         </div>
     </div>
 
-    <!-- 8. AI 虛擬助手 -->
-    <div class="ai-widget">
-        <div class="ai-toggle" onclick="toggleAI()"><i class="fa-solid fa-comments"></i></div>
-        <div class="ai-chat-box" id="aiChatBox">
-            <div class="ai-chat-header">
-                <span>小舖 AI 助手</span>
-                <button style="background:none; border:none; color:white; cursor:pointer;" onclick="toggleAI()"><i class="fa-solid fa-minus"></i></button>
+    <div class="ai-anchor">
+        <div class="ai-launcher" onclick="toggleAI()">
+            <i class="fa-solid fa-message"></i> <span>點我問問題</span>
+        </div>
+        <div class="ai-panel" id="aiChatBox">
+            <div class="ai-header">公館小舖 線上管家</div>
+            <div class="ai-dialogue" id="aiChatBody">
+                <div class="bubble bot">您好！我是公館美學小舖的線上管家。您可以問我關於「紅棗」、「芋頭」、「客家福菜」的特色，或者輸入「優惠」來拿打折密碼喔！</div>
             </div>
-            <div class="ai-chat-body" id="aiChatBody">
-                <div class="msg bot">您好！我是公館小舖助手。想了解紅棗、芋頭、福菜等特色農產，或是有關運送與優惠代碼的問題，都可以問我喔！</div>
-            </div>
-            <div class="ai-chat-footer">
-                <input type="text" id="aiInput" placeholder="輸入訊息..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <div class="ai-footer">
+                <input type="text" id="aiInput" placeholder="請輸入您的問題..." onkeypress="if(event.key==='Enter') sendAiMessage()">
                 <button onclick="sendAiMessage()">傳送</button>
             </div>
         </div>
     </div>
 
-    <!-- 14. Footer (包含真實教案數據倫理聲明) -->
     <footer>
         <div class="container">
-            <p>地址：苗栗縣公館鄉 | 團隊信箱：service@gongguan-ruralshop.tw</p>
-            <div class="footer-links">
-                <a href="#" onclick="alert('【數據蒐集透明度與隱私權聲明】\n本示範平台依據教案指導，於前端部署 Google Analytics 4 (GA4) 模擬程式碼，僅用於統計匿名消費者於本站之停留時間、區塊點擊行為以優化轉換率。絕不蒐集、追蹤任何使用者之真實個人隱私隱私隱私數據，特此公告以符合電商經營之倫理判斷。')">隱私權與數據收集政策</a>
-                <a href="#" onclick="alert('本網頁為國立聯合大學電子商務 PBL 教案示範作品，無真實商業交易。')">使用條款說明</a>
-            </div>
-            <p style="margin-top: 15px; opacity: 0.6;">Copyright © 2026 苗栗公館農村小舖. 指導老師：張陳基. All Rights Reserved.</p>
+            <div class="brand-logo" style="margin-bottom: 15px;">苗栗公館農村小舖</div>
+            <p style="color: var(--text-muted);">© 2026 苗栗公館農村小舖 專案團隊 PBL 練習作品。指導老師：張陳基 教授</p>
         </div>
     </footer>
 
-    <!-- ==========================================================================
-       JAVASCRIPT LOGIC
-       ========================================================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // 商品資料庫
+        // ==========================================================================
+        // 【核心修改】重寫 AOS 初始化參數：確保每次向上/向下划動時，都會重複播放動畫！
+        // ==========================================================================
+        AOS.init({
+            once: false,       // 設為 false，代表網頁畫面划過去、再划回來時，動畫會「重複觸發」
+            mirror: true,      // 設為 true，當向上滾動滾回區塊時，也會同步觸發退場或進場動畫
+            duration: 1000,    // 全域基礎動畫時長
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)' // 高級極簡風緩動曲線
+        });
+
+        // 手機版漢堡選單互動
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+        function scrollToSection(id) {
+            navLinks.classList.remove('active');
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 商品與 SEO Alt 標籤資料庫
         const products = [
-            { id: 1, name: "公館紅棗乾", category: "茶飲乾貨", price: 250, desc: "公館在地最核心天然日曬紅棗乾，無添加防腐劑，飽滿甘甜。", img: "https://images.unsplash.com/photo-1629115911440-62947113824f?auto=format&fit=crop&q=80&w=600" },
-            { id: 2, name: "公館有機紅棗茶", category: "茶飲乾貨", price: 300, desc: "選用優質紅棗精製而成的茶包，隨沖隨喝，四季皆宜的溫補良品。", img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=600" },
-            { id: 3, name: "公館芋頭酥", category: "客家特色食品", price: 380, desc: "採用公館著名的檳榔心芋頭製作，外皮酥脆，內餡綿密濃郁。", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=600" },
-            { id: 4, name: "客家福菜", category: "客家特色食品", price: 150, desc: "經典傳統手法醃製芥菜，甘醇獨特，客家料理湯品不可或缺的靈魂食材。", img: "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&q=80&w=600" },
-            { id: 5, name: "公館芋頭麵", category: "客家特色食品", price: 180, desc: "將優質芋頭糅入麵條中，口感Q彈，帶有淡淡的芋頭香氣。", img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&q=80&w=600" },
-            { id: 6, name: "紅棗氣泡飲", category: "茶飲乾貨", price: 80, desc: "創新的中西融合飲品，清爽微氣泡帶出陣陣紅棗蜜香。", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=600" },
-            { id: 7, name: "客家擂茶禮盒", category: "客家特色食品", price: 450, desc: "融合多種堅果與高品質茶葉，體驗正宗精緻的客家擂茶風味。", img: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80&w=600" },
-            { id: 8, name: "公館蜂蜜", category: "生鮮蔬果", price: 500, desc: "公館純淨山林採集的天然蜂蜜，質地優良，清新甜美。", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=600" },
-            { id: 9, name: "紅棗果醬", category: "客家特色食品", price: 200, desc: "手工熬煮的濃郁果醬，保留紅棗果肉，酸甜滑順。", img: "https://images.unsplash.com/photo-1582293041079-7814c2f12063?auto=format&fit=crop&q=80&w=600" },
-            { id: 10, name: "客庄特色伴手禮組", category: "客家特色食品", price: 880, desc: "集結公館紅棗、芋頭與經典福菜的頂級超值精選禮盒。", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" }
+            { id: 1, name: "精品級公館紅棗乾", category: "茶飲乾貨", price: 250, alt: "苗栗公館鄉在地紅棗乾純手工日曬成品", desc: "精選全台唯一產區公館核心區手採紅棗，經過72小時天然慢速日曬，果肉飽滿且無任何化學添加物。" },
+            { id: 2, name: "小農冷壓有機紅棗茶", category: "茶飲乾貨", price: 300, alt: "無農藥殘留之公館草本烘焙養生紅棗茶包", desc: "完美保留紅棗營養，低溫烘焙技術精製的養生茶包，茶湯清透澄紅，滋味甘甜。" },
+            { id: 3, name: "檳榔心手工芋頭酥", category: "客家特色食品", price: 380, alt: "採用優質公館檳榔心芋頭烘焙的手工芋頭酥禮盒", desc: "嚴選公館在地檳榔心芋頭，質地鬆綿、香氣濃郁，外層由手工油酥交織出完美層次。" },
+            { id: 4, name: "經典熟成客家福菜", category: "客家特色食品", price: 150, alt: "遵循傳統古法發酵踩踏的熟成客家福菜", desc: "遵循客家古法踩踏醃製、倒覆發酵的大芥菜。具有獨特的微酸甘醇底蘊，是燉煮湯品的靈魂。" },
+            { id: 5, name: "公館手作芋頭細麵", category: "客家特色食品", price: 180, alt: "融合天然芋頭研磨粉與陽光日曬的公館細麵體", desc: "將在地檳榔心芋頭磨粉拌入天然陽光日曬麵體，口感極富彈性，嚼後散發溫和的芋頭香氣。" },
+            { id: 6, name: "微氣泡紅棗蜜飲", category: "茶飲乾貨", price: 80, alt: "創新配方結合精釀氣泡與濃縮紅棗汁的冰涼蜜飲", desc: "翻轉傳統溫補印象，結合清爽氣泡與濃縮紅棗原汁，冰涼好喝中帶出陣陣龍眼蜜香。" },
+            { id: 7, name: "客庄極致擂茶禮盒", category: "客家特色食品", price: 450, alt: "融合多種健康穀物磨製的客庄傳統擂茶禮盒", desc: "融合松子、黑芝麻、綠茶等多種穀物精心磨製而成，無添加防腐劑，重現純粹的客庄待客之道。" },
+            { id: 8, name: "公館百花天然純蜜", category: "生鮮蔬果", price: 500, alt: "無農藥污染野生環境採集的公館野生百花蜜", desc: "採自公館無農藥污染之野生百花蜜，質地濃稠，帶有荔枝與咸豐草交織的微酸花香。" },
+            { id: 9, name: "手工熬製棗泥果醬", category: "客家特色食品", price: 200, alt: "慢火不加一滴水徹夜熬煮的天然膳食纖維棗泥果醬", desc: "長時間慢火熬煮，不加一滴水，保留天然膳食纖維與紅棗微酸甜風味，適合作為抹醬。" },
+            { id: 10, name: "公館創生經典伴手禮", category: "客家特色食品", price: 880, alt: "包裝精美大氣的苗栗公館創生伴手禮精品盒", desc: "集結極品紅棗乾、熟成福菜與手工芋頭細麵的尊榮美學禮盒，大氣包裝，過年過節送禮首選。" }
         ];
 
-        let cart = JSON.parse(localStorage.getItem('gongguan_cart')) || [];
-        let currentCategory = 'all';
+        const imageUrls = [
+            "https://images.unsplash.com/photo-1629115911440-62947113824f?auto=format&fit=crop&q=80&w=600",
+            "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=600",
+            "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=600",
+            "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&q=80&w=600",
+            "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&q=80&w=600"
+        ];
+        products.forEach((p, i) => { p.img = imageUrls[i % imageUrls.length]; });
+
+        let cart = JSON.parse(localStorage.getItem('gongguan_modern_cart')) || [];
+        let currentCategory = '全部';
         let activeCoupon = "";
 
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            if (window.scrollY > 80) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
 
-        // 渲染商品列表 (PBL 修復：加入完整的 SEO alt 屬性，補足長尾關鍵字事實)
+        // 渲染商品：除了 AOS 自動綁定，另外加上 CSS class 確保切換分類時有瞬間淡入階梯動畫
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             const searchVal = document.getElementById('searchInput').value.toLowerCase();
             grid.innerHTML = '';
 
             const filtered = products.filter(p => {
-                const matchesCategory = (currentCategory === 'all' || p.category === currentCategory);
+                const matchesCategory = (currentCategory === '全部' || p.category === currentCategory);
                 const matchesSearch = p.name.toLowerCase().includes(searchVal) || p.desc.toLowerCase().includes(searchVal);
                 return matchesCategory && matchesSearch;
             });
 
-            filtered.forEach(p => {
+            filtered.forEach((p, index) => {
                 const card = document.createElement('div');
-                card.className = 'product-card';
+                card.className = 'product-card fade-in-item';
+                // 運用 style 延遲，讓卡片像樓梯一樣一條一條漂亮排隊浮現
+                card.style.animationDelay = `${index * 0.05}s`; 
                 card.innerHTML = `
-                    <div class="product-img-wrapper" onclick="openProductModal(${p.id})">
-                        <span class="product-origin">[公館特產]</span>
-                        <!-- 補上 alt 屬性以契合 SEO 行銷任務 -->
-                        <img src="${p.img}" alt="苗栗公館鄉在地特產 - ${p.name}">
+                    <div class="product-img-holder">
+                        <img src="${p.img}" alt="${p.alt}">
+                        <div class="quick-add" onclick="addToCart(${p.id})">加到購物車</div>
                     </div>
-                    <div class="product-info">
-                        <h4 class="product-title" style="cursor:pointer;" onclick="openProductModal(${p.id})">${p.name}</h4>
-                        <p class="product-desc">${p.desc}</p>
-                        <div class="product-footer">
-                            <span class="product-price">NT$ ${p.price}</span>
-                            <button class="add-to-cart-btn" onclick="addToCart(${p.id})" aria-label="加入購物車"><i class="fa-solid fa-plus"></i></button>
+                    <div class="product-meta">
+                        <div>
+                            <span class="product-title" onclick="openProductModal(${p.id})">${p.name}</span>
+                            <span class="product-cat">${p.category}</span>
                         </div>
+                        <span class="product-price">NT$ ${p.price}</span>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -514,20 +567,23 @@
         }
 
         function filterProducts() { renderProducts(); }
+        
         function setCategory(cat, btn) {
             currentCategory = cat;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             renderProducts();
         }
 
         function toggleCart() {
             document.getElementById('cartDrawer').classList.toggle('open');
-            document.getElementById('drawerOverlay').classList.toggle('open');
+            document.getElementById('overlayScreen').classList.toggle('open');
         }
-        document.getElementById('drawerOverlay').addEventListener('click', () => {
+        document.getElementById('overlayScreen').addEventListener('click', () => {
             document.getElementById('cartDrawer').classList.remove('open');
-            document.getElementById('drawerOverlay').classList.remove('open');
+            document.getElementById('productModal').classList.remove('open');
+            document.getElementById('overlayScreen').classList.remove('open');
+            navLinks.classList.remove('active');
         });
 
         function addToCart(id) {
@@ -535,16 +591,15 @@
             const exist = cart.find(c => c.id === id);
             if (exist) exist.qty += 1;
             else cart.push({ ...item, qty: 1 });
-            updateCart();
             
-            // GA4 模擬事件觸發紀錄
             if(typeof gtag === 'function') {
-                gtag('event', 'add_to_cart', { items: [{ item_id: id, item_name: item.name }] });
+                gtag('event', 'add_to_cart', { items: [{ item_id: item.id, item_name: item.name, price: item.price, quantity: 1 }] });
             }
 
-            const cartIcon = document.querySelector('.fa-basket-shopping');
-            cartIcon.style.transform = 'scale(1.3)';
-            setTimeout(() => cartIcon.style.transform = 'scale(1)', 200);
+            updateCart();
+            const cartIcon = document.querySelector('.fa-bag-shopping');
+            cartIcon.style.transform = 'scale(1.4)';
+            setTimeout(() => cartIcon.style.transform = 'scale(1)', 150);
         }
 
         function changeQty(id, delta) {
@@ -562,7 +617,7 @@
         }
 
         function updateCart() {
-            localStorage.setItem('gongguan_cart', JSON.stringify(cart));
+            localStorage.setItem('gongguan_modern_cart', JSON.stringify(cart));
             const countEl = document.getElementById('cartCount');
             const container = document.getElementById('cartItems');
             let totalQty = 0, subtotal = 0;
@@ -574,30 +629,25 @@
                 const div = document.createElement('div');
                 div.className = 'cart-item';
                 div.innerHTML = `
-                    <img src="${c.img}" class="cart-item-img" alt="${c.name}">
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${c.name}</div>
-                        <div class="cart-item-price">NT$ ${c.price}</div>
-                        <div class="cart-item-qty">
-                            <button class="qty-btn" onclick="changeQty(${c.id}, -1)">-</button>
-                            <span>${c.qty}</span>
-                            <button class="qty-btn" onclick="changeQty(${c.id}, 1)">+</button>
+                    <img src="${c.img}" class="cart-item-img" alt="${c.alt}">
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${c.name}</div>
+                        <div class="cart-item-price">單價 NT$ ${c.price}</div>
+                        <div class="cart-item-ctrl">
+                            <button class="qty-adjust" onclick="changeQty(${c.id}, -1)">-</button>
+                            <span style="font-size:0.95rem; font-weight:bold;">${c.qty}</span>
+                            <button class="qty-adjust" onclick="changeQty(${c.id}, 1)">+</button>
                         </div>
                     </div>
-                    <button class="remove-item" onclick="removeCartItem(${c.id})"><i class="fa-solid fa-trash"></i></button>
+                    <button class="remove-btn" onclick="removeCartItem(${c.id})">刪除</button>
                 `;
                 container.appendChild(div);
             });
 
             countEl.innerText = totalQty;
             let discount = 0;
-            if (activeCoupon === "WELCOME100") discount = 100;
-            else if (activeCoupon === "DATE50") discount = 50;
-            else if (activeCoupon === "HAKKA88") discount = Math.round(subtotal * 0.12);
-            if (subtotal === 0) discount = 0;
-
+            if (activeCoupon === "客家88") discount = Math.round(subtotal * 0.12);
             let total = subtotal - discount;
-            if(total < 0) total = 0;
 
             document.getElementById('subtotalPrice').innerText = `NT$ ${subtotal}`;
             document.getElementById('discountPrice').innerText = `-NT$ ${discount}`;
@@ -605,13 +655,13 @@
         }
 
         function applyCoupon() {
-            const code = document.getElementById('couponInput').value.trim().toUpperCase();
-            if (code === "WELCOME100" || code === "HAKKA88" || code === "DATE50") {
+            const code = document.getElementById('couponInput').value.trim();
+            if (code === "客家88") {
                 activeCoupon = code;
-                alert(`折價券 [${code}] 套用成功！`);
+                alert("專屬88折優惠套用成功！");
                 updateCart();
             } else {
-                alert("無效的折扣碼，請重新輸入。");
+                alert("折扣代碼不正確，請輸入「客家88」試試看喔！");
             }
         }
 
@@ -619,52 +669,51 @@
             const p = products.find(prod => prod.id === id);
             const body = document.getElementById('productModalBody');
             body.innerHTML = `
-                <div class="p-modal-grid">
-                    <img src="${p.img}" class="p-modal-img" alt="${p.name}">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:center;">
+                    <img src="${p.img}" style="width:100%; height:350px; object-fit:cover;" alt="${p.alt}">
                     <div>
-                        <h2 class="p-modal-title">${p.name}</h2>
-                        <span class="badge" style="margin-bottom:10px; display:inline-block;">${p.category}</span>
-                        <div class="p-modal-price">NT$ ${p.price}</div>
-                        <p style="font-size:0.9rem; color:#555; margin-bottom:20px;">${p.desc}</p>
-                        <button class="btn" style="width:100%;" onclick="addToCart(${p.id}); closeModal('productModal');">加入購物車</button>
+                        <span style="font-size:0.85rem; color:var(--text-muted);">${p.category}</span>
+                        <h2 style="font-size:1.8rem; margin:10px 0 20px 0;">${p.name}</h2>
+                        <div style="font-size:1.3rem; font-weight:700; margin-bottom:20px; color:var(--accent-gongguan)">NT$ ${p.price}</div>
+                        <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:30px; text-align:justify; line-height:1.6;">${p.desc}</p>
+                        <button class="btn-checkout" onclick="addToCart(${p.id}); closeModal('productModal');">加到購物車</button>
                     </div>
                 </div>
             `;
             document.getElementById('productModal').classList.add('open');
-            if(typeof gtag === 'function') {
-                gtag('event', 'view_item', { item_id: id, item_name: p.name });
-            }
+            document.getElementById('overlayScreen').classList.add('open');
         }
 
         function openCheckoutModal() {
-            if (cart.length === 0) { alert("您的購物籃是空的！"); return; }
+            if (cart.length === 0) { alert("您的購物車目前是空的喔！"); return; }
             const receipt = document.getElementById('receiptDetails');
-            const orderNum = 'GG-' + Math.floor(Math.random() * 900000 + 100000);
-            let listHtml = '<ul style="margin-top:10px; padding-left:15px;">';
-            cart.forEach(c => { listHtml += `<li>${c.name} x ${c.qty} - NT$ ${c.price * c.qty}</li>`; });
+            const orderNum = '公館小舖-' + Math.floor(Math.random() * 900000 + 100000);
+            let listHtml = '<ul style="list-style:none; padding:0; margin-top:10px;">';
+            cart.forEach(c => { listHtml += `<li style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>${c.name} × ${c.qty}</span></li>`; });
             listHtml += '</ul>';
 
             receipt.innerHTML = `
-                <p><strong>訂單編號：</strong>${orderNum}</p>
-                <p><strong>購買明細：</strong></p>${listHtml}
-                <hr style="margin:10px 0; border:none; border-top:1px dashed #DDD;">
-                <p><strong>商品總額：</strong>${document.getElementById('subtotalPrice').innerText}</p>
-                <p style="color:var(--button-color);"><strong>折扣金額：</strong>${document.getElementById('discountPrice').innerText}</p>
-                <p style="font-size:1.1rem; font-weight:bold; margin-top:5px;"><strong>最終付款金額：</strong>${document.getElementById('totalPrice').innerText}</p>
+                <p style="margin-bottom:5px;"><strong>訂單編號:</strong> ${orderNum}</p>
+                <p><strong>購買明細:</strong></p>${listHtml}
+                <hr style="border:none; border-top:1px solid var(--border-color); margin:15px 0;">
+                <p><strong>應付總金額:</strong> ${document.getElementById('totalPrice').innerText}</p>
             `;
             document.getElementById('cartDrawer').classList.remove('open');
-            document.getElementById('drawerOverlay').classList.remove('open');
             document.getElementById('checkoutModal').classList.add('open');
-            
-            if(typeof gtag === 'function') {
-                gtag('event', 'purchase', { transaction_id: orderNum, value: parseFloat(document.getElementById('totalPrice').innerText.replace(/[^0-9.]/g, '')) });
-            }
         }
 
-        function closeModal(modalId) { document.getElementById(modalId).classList.remove('open'); }
-        function clearCartAndClose() { cart = []; activeCoupon = ""; document.getElementById('couponInput').value = ""; updateCart(); closeModal('checkoutModal'); }
+        function closeModal(modalId) { 
+            document.getElementById(modalId).classList.remove('open'); 
+            document.getElementById('overlayScreen').classList.remove('open');
+        }
+        
+        function clearCartAndClose() { 
+            cart = []; activeCoupon = ""; 
+            document.getElementById('couponInput').value = ""; 
+            updateCart(); 
+            closeModal('checkoutModal'); 
+        }
 
-        // AI 聊天客服
         function toggleAI() { document.getElementById('aiChatBox').classList.toggle('open'); }
         function sendAiMessage() {
             const input = document.getElementById('aiInput');
@@ -674,20 +723,19 @@
             input.value = '';
 
             setTimeout(() => {
-                let reply = "抱歉，小舖團隊目前不太明白這個問題。您可以試著詢問「紅棗」、「芋頭」、「優惠」或「運送方式」喔！";
-                if (text.includes('紅棗')) reply = "公館鄉是全台唯一紅棗專業生產區！推薦我們的「公館紅棗乾」與「有機紅棗茶」，保證日曬且無農藥殘留！";
-                else if (text.includes('芋頭')) reply = "公館的檳榔心芋頭吃起來極其綿密！我們的「公館芋頭酥」與「芋頭麵」都是人氣必買。";
-                else if (text.includes('福菜') || text.includes('客家')) reply = "客家福菜是傳統手工醃製的靈魂，不論是煮湯還是炒肉都非常甘醇！另外也有「客家擂茶禮盒」適合當伴手禮。";
-                else if (text.includes('優惠') || text.includes('折扣')) reply = "目前提供三大折扣代碼：[WELCOME100] 現折100元、[HAKKA88] 享88折優惠、[DATE50] 現折50元！可在購物車套用。";
-                else if (text.includes('運送') || text.includes('宅配')) reply = "全店滿 NT$ 1000 元即享免運費，未滿則收常溫宅配 150 元運費。下單後 2-3 個工作天新鮮直送！";
+                let reply = "不好意思，我聽不懂這個詞。您可以試著輸入「紅棗」、「芋頭」、「福菜」或者「優惠」喔！";
+                if (text.includes('紅棗')) reply = "苗栗公館擁有最棒的陽光與純淨的水源，是全台灣最好的紅棗產區！我們的紅棗乾都是農人一粒粒手工採摘、天然日曬烘乾的，飽滿又甘甜，燉湯泡茶都非常補喔！";
+                else if (text.includes('芋頭')) reply = "公館著名的「檳榔心芋頭」因為土質關係，吃起來特別鬆軟、綿密。推薦您可以試試看我們熱賣的手工芋頭酥 childhood 味道和芋頭細麵！";
+                else if (text.includes('福菜') || text.includes('客家')) reply = "我們的客家福菜是遵循古法，用大芥菜經過腳踏醃製、倒覆發酵做成的。拿來煮福菜肉片湯，味道微酸甘甜，非常有阿嬤家古早味的感動喔！";
+                else if (text.includes('優惠') || text.includes('折扣')) reply = "阿姨、姊姊看這裡！在購物車那邊輸入優惠券代碼【客家88】，就可以直接幫您打88折喔！趕快去試試看！";
                 appendMessage(reply, 'bot');
-            }, 600);
+            }, 500);
         }
 
         function appendMessage(msg, sender) {
             const body = document.getElementById('aiChatBody');
             const div = document.createElement('div');
-            div.className = `msg ${sender}`;
+            div.className = `bubble ${sender}`;
             div.innerText = msg;
             body.appendChild(div);
             body.scrollTop = body.scrollHeight;
